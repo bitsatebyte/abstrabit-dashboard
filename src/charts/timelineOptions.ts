@@ -29,12 +29,12 @@ const backgroundChartArea = {
   },
 };
 
-const chartYears = {
-  id: 'chart-years',
-  afterDatasetsDraw(chart: any, args: any, options: any) {
-    const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
-  }
-}
+// const chartYears = {
+//   id: 'chart-years',
+//   afterDatasetsDraw(chart: any, args: any, options: any) {
+//     const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
+//   }
+// }
 
 export const timelineOptions = {
   indexAxis: 'y' as const,
@@ -73,7 +73,7 @@ export const timelineOptions = {
         return `${value.y}`;
       },
       font: {
-        size: '8px'
+        size: 8,
       },
     },
   },

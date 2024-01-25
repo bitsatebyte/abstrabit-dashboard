@@ -30,7 +30,7 @@ export const pieChartOptions = {
       position: 'right' as const,
       labels: {
         font: {
-          size: '8px' as const,
+          size: 8,
         },
         usePointStyle: true,
         pointStyle: 'circle' as const,
@@ -44,7 +44,7 @@ export const pieChartOptions = {
         return `${value.toLocaleString()} (${value / 1000}%)`;
       },
       font: {
-        size: '5px'
+        size: 5,
       },
     },
   },
