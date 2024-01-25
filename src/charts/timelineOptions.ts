@@ -29,7 +29,7 @@ const backgroundChartArea = {
     bgColors(0, 10, 'rgba(240, 239, 255, 1)');
     bgColors(10, 20, 'rgba(241, 246, 229, 1)');
     bgColors(20, 30, 'rgba(254, 245, 231, 1)');
-    function bgColors(bracketLow, bracketHigh, color){
+    function bgColors(bracketLow: number, bracketHigh: number, color: string){
       ctx.fillStyle = color;
       ctx.fillRect(left, x.getPixelForValue(bracketHigh), width, x.getPixelForValue(bracketLow) - x.getPixelForValue(bracketHigh));
       ctx.restore();
