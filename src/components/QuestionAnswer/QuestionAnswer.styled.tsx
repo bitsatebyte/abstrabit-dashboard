@@ -19,7 +19,7 @@ export const StyledAllQuestions = styled.p`
 export const StyledArrowSection = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 65px;
+  width: 120px;
 `;
 
 export const StyledAnswerCardsWrapper = styled.div`

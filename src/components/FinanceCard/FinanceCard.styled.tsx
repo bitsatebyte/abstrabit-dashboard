@@ -22,6 +22,8 @@ export const StyledCardHeaderItem = styled.div``;
 
 export const StyledCardTitle = styled.h3`
   font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0px;
 `;
 
 export const StyledCardBody = styled.div`
@@ -35,7 +37,7 @@ export const StyledBenefit = styled.div<{ $background: string; }>`
     border-radius: 5px;
     height: 35px;
     display: flex;
-    padding: 1rem 0.9rem;
+    padding: 1rem 0.9rem 0.9rem 0.769rem;
     align-items: center;
     background: ${$background};
     gap: 1rem;
@@ -75,6 +77,13 @@ export const StyledInterestPercentage = styled.p`
   letter-spacing: 0px;
   color: #1A1B1E;
   font-weight: 700;
+`;
+
+export const StyledBenefitText = styled.span`
+  font-size: 1.1rem;
+  font-weight: 100;
+  letter-spacing: 0px;
+  line-height: 17px;
 `;
 
 export const StyledDiv = styled.div``;

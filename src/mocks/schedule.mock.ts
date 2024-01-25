@@ -12,6 +12,8 @@ export const upcomingSchedule = [
     depositAmount: 20000,
     tenure: '2 Years',
     interestRate: 9.10,
+    blueButtonText: 'Complete Now',
+    whiteButtonText: 'Reschedule',
   },
   {
     id: 'schedule-2',
@@ -26,6 +28,8 @@ export const upcomingSchedule = [
     depositAmount: 25000,
     tenure: '18 Months',
     interestRate: 8.10,
+    blueButtonText: 'Pay Now',
+    whiteButtonText: 'Cancel Application',
   },
   {
     id: 'schedule-3',
@@ -40,5 +44,7 @@ export const upcomingSchedule = [
     depositAmount: 25000,
     tenure: '18 Months',
     interestRate: 8.10,
+    blueButtonText: 'Renew Now',
+    whiteButtonText: 'Compare other FDs',
   },
 ];

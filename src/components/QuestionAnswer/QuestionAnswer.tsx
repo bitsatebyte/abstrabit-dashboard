@@ -22,8 +22,8 @@ export const QuestionAnswer = (props: any) => {
           <StyledAllQuestions>to all your questions</StyledAllQuestions>
         </StyledDiv>
         <StyledArrowSection>
-          <ArrowLeft width={'14px'} />
-          <ArrowRight width={'14px'} />
+          <ArrowLeft width={'60px'} opacity={0.2} cursor={'pointer'} />
+          <ArrowRight width={'60px'} cursor={'pointer'} />
         </StyledArrowSection>
       </StyledQuestionsTitle>
       <StyledAnswerCardsWrapper>

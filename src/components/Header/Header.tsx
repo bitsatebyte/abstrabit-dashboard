@@ -7,6 +7,7 @@ import {
   StyledNavLink,
 } from './Header.styled';
 import { RackextLogo } from '../../assets/RackextLogo';
+import { DropDown } from '../DropDown';
 
 type NavLink = {
   href: string;
@@ -48,6 +49,9 @@ const Header = () => {
                 </StyledNavLink>
               </StyledNavItem>
             ))}
+            <StyledNavItem>
+              <DropDown />
+            </StyledNavItem>
           </StyledNavLinksWrapper>
         </StyledNavItem>
       </StyledNavInnerWrapper>

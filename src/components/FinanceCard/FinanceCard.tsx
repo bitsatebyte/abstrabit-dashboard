@@ -12,6 +12,7 @@ import {
   StyledInterestPercentage,
   StyledButton,
   StyledDiv,
+  StyledBenefitText,
 } from './FinanceCard.styled';
 import { type ColorPalette } from '@/types/ColorPalette';
 
@@ -47,7 +48,7 @@ export const FinanceCard = (props: FinanceCard): JSX.Element => {
         {props.benefits.map((benefit) => (
           <StyledBenefit key={benefit.id} $background={props.colors.benefitsColor}>
             <CheckBox width={'16px'} height={'16px'} color={props.colors.checkboxColor} />
-            <StyledDiv>{benefit.text}</StyledDiv>
+            <StyledBenefitText>{benefit.text}</StyledBenefitText>
           </StyledBenefit>
         ))}
       </StyledCardBody>

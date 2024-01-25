@@ -43,7 +43,12 @@ export const StyledScheduleDetailsTitle = styled.h4`
   margin-bottom: 8px;
 `;
 
-export const StyledParagraph = styled.p``;
+export const StyledParagraph = styled.p`
+  letter-spacing: 0px;
+  color: #1A1B1E;
+  font-size: 12px;
+  font-weight: 600;
+`;
 
 export const StyledButtonsWrapper = styled.div`
   display: flex;
@@ -53,21 +58,23 @@ export const StyledButtonsWrapper = styled.div`
 
 export const StyledBlueButton = styled.button`
   border: none;
-  padding: 1.15rem 3.15rem;
+  padding: 1.15rem 1rem;
   background-color: #3B39D9;
   color: white;
   border-radius: 0.5rem;
   width: 50%;
   cursor: pointer;
+  font-size: 16px;
 `;
 
 export const StyledBorderedButton = styled.button`
-  padding: 1.15rem 3.15rem;
+  padding: 1.15rem 1rem;
   background-color: #FFFFFF;
   color: #3B39D9;
   border: 1px solid #3B39D9;
   border-radius: 0.5rem;
   width: 50%;
   cursor: pointer;
+  font-size: 16px;
 `;
 

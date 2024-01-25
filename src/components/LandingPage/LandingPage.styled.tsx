@@ -57,7 +57,7 @@ export const StyledTitle = styled.h3`
   letter-spacing: 0px;
   color: #1A1B1E;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 export const UpcomingScheduleWrapper = styled.div`

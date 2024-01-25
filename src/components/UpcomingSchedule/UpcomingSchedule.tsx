@@ -26,6 +26,8 @@ type UpcomingSchedule = {
   depositAmount: number;
   tenure: string;
   interestRate: number;
+  blueButtonText: string;
+  whiteButtonText: string;
 };
 
 export const UpcomingSchedule = (props: UpcomingSchedule) => {
@@ -42,15 +44,15 @@ export const UpcomingSchedule = (props: UpcomingSchedule) => {
           />
         </div>
         <div>
-          <StyledScheduleCompany>
-            {props.company}
-          </StyledScheduleCompany>
+          <StyledScheduleCompany>{props.company}</StyledScheduleCompany>
           <StyledDetailsWrapper>
             <div>
               <StyledScheduleDetailsTitle>
                 Deposit Amt
               </StyledScheduleDetailsTitle>
-              <StyledParagraph>Rs. {props.depositAmount.toLocaleString()}</StyledParagraph>
+              <StyledParagraph>
+                Rs. {props.depositAmount.toLocaleString()}
+              </StyledParagraph>
             </div>
             <div>
               <StyledScheduleDetailsTitle>Tenure</StyledScheduleDetailsTitle>
@@ -66,8 +68,8 @@ export const UpcomingSchedule = (props: UpcomingSchedule) => {
         </div>
       </StyledScheduleBody>
       <StyledButtonsWrapper>
-        <StyledBlueButton>Complete Now</StyledBlueButton>
-        <StyledBorderedButton>Complete Now</StyledBorderedButton>
+        <StyledBlueButton>{props.blueButtonText}</StyledBlueButton>
+        <StyledBorderedButton>{props.whiteButtonText}</StyledBorderedButton>
       </StyledButtonsWrapper>
     </StyledScheduleWrapper>
   );

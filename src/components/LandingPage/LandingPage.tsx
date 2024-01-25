@@ -60,7 +60,7 @@ export const LandingPage = (props: any): JSX.Element => {
             </StyledDiv>
           </StyledFixedDepositPortfolioCard>
           <StyledFixedDepositMaturityTimeline>
-            <StyledDiv>
+            <StyledDiv style={{ marginBottom: '2rem' }}>
               <StyledTitle>FD Maturity Timeline</StyledTitle>
             </StyledDiv>
             <StyledDiv>
