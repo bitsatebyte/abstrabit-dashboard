@@ -8,6 +8,7 @@ import {
 } from './Header.styled';
 import { RackextLogo } from '../../assets/RackextLogo';
 import { DropDown } from '../DropDown';
+import { SupportDropdown } from '../SupportDropdown';
 
 type NavLink = {
   href: string;
@@ -27,11 +28,6 @@ const Header = () => {
       title: 'FAQs',
       id: 'link-2',
     },
-    {
-      href: '/support',
-      title: 'Support',
-      id: 'link-3',
-    },
   ];
 
   return (
@@ -49,6 +45,9 @@ const Header = () => {
                 </StyledNavLink>
               </StyledNavItem>
             ))}
+            <StyledNavItem>
+              <SupportDropdown />
+            </StyledNavItem>
             <StyledNavItem>
               <DropDown />
             </StyledNavItem>

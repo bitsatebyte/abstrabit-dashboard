@@ -1,31 +1,29 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import {
-  DropdownButton,
   StyledDropdownContent,
   StyledDropdownItem,
-} from './Dropdown.styled';
-import { UserIcon } from '@/assets/UserIcon';
-import { ArrowDown } from '@/assets/ArrowDown';
+  StyledSupport,
+} from './SupportDropdown.styled';
 import { ColoredUser } from '@/assets/ColoredUser';
 import { FdsIcon } from '@/assets/FdsIcon';
 import { TransactionsIcon } from '@/assets/TransactionsIcon';
-import { LogoutIcon } from '@/assets/LogoutIcon';
 import { useState } from 'react';
 
-export const DropDown = () => {
+export const SupportDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpenChange = (open: boolean) => {
-    setIsOpen(!isOpen);
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
   };
 
   return (
-    <DropdownMenu.Root onOpenChange={handleOpenChange} open={isOpen}>
-      <DropdownMenu.Trigger asChild>
-        <DropdownButton $open={isOpen}>
-          <UserIcon width={'16px'} height={'16px'} color='#4A4ED4' />
-          <ArrowDown width={'16px'} height={'16px'} />
-        </DropdownButton>
+    <DropdownMenu.Root open={isOpen}>
+      <DropdownMenu.Trigger asChild onPointerEnter={handleMouseEnter} onPointerLeave={handleMouseLeave}>
+        <StyledSupport>Support</StyledSupport>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
@@ -41,10 +39,6 @@ export const DropDown = () => {
           <StyledDropdownItem>
             <TransactionsIcon width={'20px'} height={'20px'} />
             <span>My Transactions</span>
-          </StyledDropdownItem>
-          <StyledDropdownItem>
-            <LogoutIcon width={'20px'} height={'20px'} />
-            <span>Logout</span>
           </StyledDropdownItem>
           <DropdownMenu.Separator />
         </StyledDropdownContent>

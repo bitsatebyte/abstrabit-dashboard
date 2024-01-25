@@ -13,7 +13,7 @@ export const DropdownButton = styled.button<{ $open: boolean }>`
       to {width: 71px;}
     }
 
-    ${$open ? `animation: width-expand 0.5s forwards;` : `animation: width-contract 0.5s forwards;`}
+    ${$open ? `animation: width-expand 0.5s ease-out forwards;` : `animation: width-contract 0.5s ease-out forwards;`}
     border: 1px solid #4A4ED4;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 5px #0000000D;
