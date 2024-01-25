@@ -13,7 +13,7 @@ export const StyledDropdownContent = styled(Content)`
   width: 238px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 20px #0000001A;
-  padding: 25px 14px;
+  border-radius: 5px;
 `;
 
 export const StyledDropdownItem = styled(Item)`
@@ -22,8 +22,9 @@ export const StyledDropdownItem = styled(Item)`
   line-height: 32px;
   cursor: pointer;
   align-items: center;
-  gap: 12px;
-  padding: 1rem;
+  gap: 16px;
+  padding: 25px 14px;
+  border-bottom: 1px solid #EFEFEF;
 `;
 
 export const StyledSupportDetailWrapper = styled.div`
@@ -33,6 +34,7 @@ export const StyledSupportDetailWrapper = styled.div`
 export const StyledSupportDetail = styled(Link)`
   text-decoration: none;
   font-size: 13px;
+  line-height: 16px;
   letter-spacing: 0px;
   color: #3B39D9;
   display: block;

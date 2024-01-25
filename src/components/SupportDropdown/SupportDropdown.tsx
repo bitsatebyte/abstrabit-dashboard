@@ -5,42 +5,30 @@ import {
   StyledSupport,
   StyledSupportDetail,
 } from './SupportDropdown.styled';
-import { ColoredUser } from '@/assets/ColoredUser';
-import { FdsIcon } from '@/assets/FdsIcon';
-import { TransactionsIcon } from '@/assets/TransactionsIcon';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { EmailIcon } from '../../assets/EmailIcon';
 import { PhoneIcon } from '../../assets/PhoneIcon';
 
 export const SupportDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const closeTimeoutRef = useRef<any | null>(null);
+
 
   const handleMouseEnter = () => {
-    clearTimeout(closeTimeoutRef.current);
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 1000);
+    setIsOpen(false);
   };
-
-  useEffect(() => {
-    return () => {
-      clearTimeout(closeTimeoutRef.current);
-    };
-  }, []);
 
   return (
     <DropdownMenu.Root open={isOpen}>
-      <DropdownMenu.Trigger asChild onPointerEnter={handleMouseEnter} onPointerLeave={handleMouseLeave}>
+      <DropdownMenu.Trigger asChild  onPointerEnter={handleMouseEnter} onPointerLeave={handleMouseLeave}>
         <StyledSupport>Support</StyledSupport>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <StyledDropdownContent sideOffset={10}>
+        <StyledDropdownContent sideOffset={10} align='end' sticky='always'>
           <StyledDropdownItem>
             <PhoneIcon width={'12px'} height={'12px'} />
             <div>
