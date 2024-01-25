@@ -22,7 +22,7 @@ export const timelineData = {
 
 const backgroundChartArea = {
   id: 'background-chart-area',
-  beforeDatasetsDraw(chart, args, options) {
+  beforeDatasetsDraw(chart: any, args: any, options: any) {
     const { ctx, data, chartArea: { top, bottom, left, right, width, height }, scales: { x, y } } = chart;
     ctx.fillStyle = 'rgba(240, 239, 255, 0.3)';
     ctx.fillRect(0, 0, 299, 400);
@@ -31,7 +31,7 @@ const backgroundChartArea = {
 
 const chartYears = {
   id: 'chart-years',
-  afterDatasetsDraw(chart, args, options) {
+  afterDatasetsDraw(chart: any, args: any, options: any) {
     const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
   }
 }
@@ -56,7 +56,7 @@ export const timelineOptions = {
       max: '2026-12-31',
       position: 'top' as const,
       ticks: {
-        callback: function(value: number, index: number, ticks) {
+        callback: function(value: number, index: number, ticks: any) {
           return `${format(value, 'MMMMM')}`;
         }
       },
