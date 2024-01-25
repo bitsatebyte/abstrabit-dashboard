@@ -65,6 +65,10 @@ export const UpcomingScheduleWrapper = styled.div`
   flex-direction: column;
   border: 1px solid #EBEBEB;
   border-radius: 5px;
+
+  .upcoming-schedule:nth-child(3) {
+    border-bottom: none;
+  }
 `;
 
 export const StyledAllQuestions = styled.p`

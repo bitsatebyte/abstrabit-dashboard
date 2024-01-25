@@ -32,7 +32,7 @@ type UpcomingSchedule = {
 
 export const UpcomingSchedule = (props: UpcomingSchedule) => {
   return (
-    <StyledScheduleWrapper>
+    <StyledScheduleWrapper className='upcoming-schedule'>
       <StyledScheduleTitle>{props.title}</StyledScheduleTitle>
       <StyledScheduleBody>
         <div>

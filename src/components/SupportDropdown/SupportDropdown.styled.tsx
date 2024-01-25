@@ -1,4 +1,5 @@
 import { Content, Item } from "@radix-ui/react-dropdown-menu";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledSupport = styled.span`
@@ -23,4 +24,16 @@ export const StyledDropdownItem = styled(Item)`
   align-items: center;
   gap: 12px;
   padding: 1rem;
+`;
+
+export const StyledSupportDetailWrapper = styled.div`
+  
+`;
+
+export const StyledSupportDetail = styled(Link)`
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0px;
+  color: #3B39D9;
+  display: block;
 `;
