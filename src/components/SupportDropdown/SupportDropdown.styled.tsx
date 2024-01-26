@@ -23,7 +23,7 @@ export const StyledDropdownItem = styled(Item)`
   cursor: pointer;
   align-items: center;
   gap: 16px;
-  padding: 25px 14px;
+  padding: 15px 14px;
   border-bottom: 1px solid #EFEFEF;
 `;
 
