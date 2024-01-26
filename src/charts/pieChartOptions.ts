@@ -30,7 +30,7 @@ export const pieChartOptions = {
       position: 'right' as const,
       labels: {
         font: {
-          size: 8,
+          size: 10,
         },
         usePointStyle: true,
         pointStyle: 'circle' as const,

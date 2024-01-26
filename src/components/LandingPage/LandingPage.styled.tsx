@@ -51,6 +51,7 @@ export const StyledScheduleWrapper = styled.div`
 export const StyledPortfolioHeader = styled.div`
   display: flex;
   margin-bottom: 2rem;
+  justify-content: space-between;
 `;
 
 export const StyledTitle = styled.h3`
