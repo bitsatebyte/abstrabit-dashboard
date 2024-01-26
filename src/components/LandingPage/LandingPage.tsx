@@ -33,6 +33,7 @@ import { pieChartData, pieChartOptions } from '@/charts/pieChartOptions';
 import { timelineOptions, timelineData, timelinePlugins } from '@/charts/timelineOptions';
 import { financeCards } from '@/mocks';
 import { upcomingSchedule } from '../../mocks/schedule.mock';
+import AnnotationPlugin from 'chartjs-plugin-annotation';
 
 export const LandingPage = (props: any): JSX.Element => {
   ChartJS.register(
@@ -45,6 +46,7 @@ export const LandingPage = (props: any): JSX.Element => {
     BarElement,
     Title,
     TimeScale,
+    AnnotationPlugin,
   );
 
   return (

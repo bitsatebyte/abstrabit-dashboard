@@ -20,31 +20,21 @@ export const timelineData = {
   ],
 };
 
-const backgroundChartArea = {
-  id: 'background-chart-area',
-  beforeDatasetsDraw(chart: any, args: any, options: any) {
-    const { ctx, data, chartArea: { top, bottom, left, right, width, height }, scales: { x, y } } = chart;
-    ctx.save();
-
-    bgColors(0, 10, 'rgba(240, 239, 255, 1)');
-    bgColors(10, 20, 'rgba(241, 246, 229, 1)');
-    bgColors(20, 30, 'rgba(254, 245, 231, 1)');
-    function bgColors(bracketLow: number, bracketHigh: number, color: string){
-      ctx.fillStyle = color;
-      ctx.fillRect(left, x.getPixelForValue(bracketHigh), width, x.getPixelForValue(bracketLow) - x.getPixelForValue(bracketHigh));
-      ctx.restore();
-    }
-  },
-};
-
-const chartYears = {
-  id: 'chart-years',
-  afterDatasetsDraw(chart: any, args: any, options: any) {
-    const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart;
-    ctx.fillStyle = 'blue';
-    ctx.fillText('text', x.getPixelForValue(0), 10);
+const xScalePadding = {
+  id: 'x-scale-padding',
+  beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
+    const { ctx, data, scales: { x, y } } = chart;
+    x._labelItems.forEach((label: any, index: number) => {
+      label.textOffset = 0;
+    });
   }
 }
+
+const chartAreaBorder = {
+  id: 'chart-area-border',
+  borderColor: 'blue', 
+  borderWidth: 1,
+};
 
 export const timelineOptions = {
   layout: {
@@ -54,7 +44,7 @@ export const timelineOptions = {
   },
   indexAxis: 'y' as const,
   maintainAspectRatio: false,
-  barPercentage: 0.7,
+  barPercentage: 0.9,
   scales: {
     y: {
       display: false,
@@ -64,9 +54,6 @@ export const timelineOptions = {
       time: {
         unit: 'month' as const,
       },
-    //   grid: {
-    //     color: 'white',
-    //   },
       min: '2024-01-01',
       max: '2026-12-31',
       position: 'top' as const,
@@ -74,9 +61,14 @@ export const timelineOptions = {
         callback: function(value: number, index: number, ticks: any) {
           return `${format(value, 'MMMMM')}`;
         },
-        padding: -1,
+        length: 20,
+        offset: true,
+        padding: -7,
       },
-      grid: { offset: true },
+      grid: { 
+        offset: true,
+        tickLength: 20,
+      },
     },
     x1: {
       align: 'end',
@@ -91,14 +83,11 @@ export const timelineOptions = {
           if(index === 6) { return '2024' };
           if(index === 18) { return '2025' };
           if(index === 30) { return '2026' };
-        }
+        },
       },
       grid: {
         drawOnChartArea: false,
         drawTicks: false,
-      },
-      border: {
-        display: false,
       },
       min: '2024-01-01',
       max: '2026-12-31',
@@ -114,10 +103,10 @@ export const timelineOptions = {
         return `${value.y}`;
       },
       font: {
-        size: 8,
+        size: 10,
       },
     },
   },
 };
 
-export const timelinePlugins = [backgroundChartArea, chartYears];
+export const timelinePlugins = [chartAreaBorder, xScalePadding];
