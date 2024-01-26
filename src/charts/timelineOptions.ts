@@ -25,16 +25,10 @@ const xScalePadding = {
   beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
     const { ctx, data, scales: { x, y } } = chart;
     x._labelItems.forEach((label: any, index: number) => {
-      label.textOffset = 0;
+      label.textOffset = 3;
     });
   }
 }
-
-const chartAreaBorder = {
-  id: 'chart-area-border',
-  borderColor: 'blue', 
-  borderWidth: 1,
-};
 
 export const timelineOptions = {
   layout: {
@@ -109,4 +103,4 @@ export const timelineOptions = {
   },
 };
 
-export const timelinePlugins = [chartAreaBorder, xScalePadding];
+export const timelinePlugins = [xScalePadding];
