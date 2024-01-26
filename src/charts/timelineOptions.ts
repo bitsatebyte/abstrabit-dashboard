@@ -28,7 +28,44 @@ const xScalePadding = {
       label.textOffset = 3;
     });
   }
-}
+};
+
+const plugin = {
+  id: 'customCanvasBackgroundColor',
+  beforeDraw: (chart: { height?: any; ctx?: any; }, args: any, options: { color: string; }) => {
+    const {ctx} = chart;
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = options.color || 'rgba(240, 239, 255, 1)';
+    ctx.fillRect(0, 21, 248, chart.height);
+    ctx.restore();
+  }
+};
+
+const plugin2 = {
+  id: 'customCanvasBackgroundColor2',
+  beforeDraw: (chart: { height?: any; ctx?: any; }, args: any, options: { color: string; }) => {
+    const {ctx} = chart;
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = options.color || 'rgba(241, 246, 229, 1)';
+    ctx.fillRect(248, 21, 255, chart.height);
+    ctx.restore();
+  }
+};
+
+const plugin3 = {
+  id: 'customCanvasBackgroundColor3',
+  beforeDraw: (chart: { height?: any; ctx?: any; }, args: any, options: any) => {
+    const {ctx} = chart;
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = 'rgba(254, 245, 231, 1)';
+    ctx.fillRect(496, 21, 260, chart.height);
+    ctx.restore();
+  }
+};
+
 
 export const timelineOptions = {
   layout: {
@@ -62,6 +99,7 @@ export const timelineOptions = {
       grid: { 
         offset: true,
         tickLength: 20,
+        color: 'white',
       },
     },
     x1: {
@@ -103,4 +141,4 @@ export const timelineOptions = {
   },
 };
 
-export const timelinePlugins = [xScalePadding];
+export const timelinePlugins = [xScalePadding, plugin, plugin2, plugin3];
