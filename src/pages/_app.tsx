@@ -17,9 +17,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
-    max-width: 100vw;
+    max-width: 1366px;
     overflow-x: hidden;
     font-size: 10px;
+    margin: auto;
   }
 
   main {
