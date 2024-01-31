@@ -1,5 +1,6 @@
+import { type Chart, LabelItem, type Tick } from 'chart.js';
 import 'chartjs-adapter-date-fns';
-import { Context } from 'chartjs-plugin-datalabels';
+import { type Context } from 'chartjs-plugin-datalabels';
 import { format } from 'date-fns';
 
 export const timelineData = {
@@ -22,9 +23,9 @@ export const timelineData = {
 
 const xScalePadding = {
   id: 'x-scale-padding',
-  beforeDatasetsDraw(chart: any, args: any, pluginOptions: any) {
-    const { ctx, data, scales: { x, y } } = chart;
-    x._labelItems.forEach((label: any, index: number) => {
+  beforeDatasetsDraw(chart: any, _args: any, _pluginOptions: any) {
+    const { scales: { x } } = chart;
+    x._labelItems.forEach((label: LabelItem, _index: number) => {
       label.textOffset = 3;
     });
   }
@@ -32,16 +33,17 @@ const xScalePadding = {
 
 const plugin = {
   id: 'customCanvasBackgroundColor',
-  beforeDraw: (chart: { height?: any; ctx?: any; }, args: any, options: { color: string; }) => {
-    const {ctx} = chart;
+  beforeDraw: (chart: Chart, _args: any, _options: { color: string; }) => {
+    const { ctx } = chart;
+    const MAX_BG_COLOR_HEIGHT = 21;
     ctx.save();
     ctx.globalCompositeOperation = 'destination-over';
     ctx.fillStyle = 'rgba(240, 239, 255, 1)';
-    ctx.fillRect(0, 21, 248, chart.height);
+    ctx.fillRect(0, MAX_BG_COLOR_HEIGHT, chart.width/3 - 9, chart.height);
     ctx.fillStyle = 'rgba(241, 246, 229, 1)';
-    ctx.fillRect(248, 21, 255, chart.height);
+    ctx.fillRect(248, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
     ctx.fillStyle = 'rgba(254, 245, 231, 1)';
-    ctx.fillRect(496, 21, 260, chart.height);
+    ctx.fillRect(502, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
     ctx.restore();
   }
 };
@@ -52,6 +54,7 @@ export const timelineOptions = {
       top: 1,
     },
   },
+  responsive: true,
   indexAxis: 'y' as const,
   maintainAspectRatio: false,
   barPercentage: 0.9,
@@ -68,11 +71,10 @@ export const timelineOptions = {
       max: '2026-12-31',
       position: 'top' as const,
       ticks: {
-        callback: function(value: number, index: number, ticks: any) {
+        callback: function(value: number, index: number, ticks: Tick[]) {
           return `${format(value, 'MMMMM')}`;
         },
         length: 20,
-        offset: true,
         padding: -7,
       },
       grid: { 
@@ -89,8 +91,7 @@ export const timelineOptions = {
       },
       position: 'top',
       ticks: {
-        callback: function(value: number, index: number, ticks: any) {
-          console.log(index);
+        callback: function(value: number, index: number, ticks: Tick[]) {
           if(index === 6) { return '2024' };
           if(index === 18) { return '2025' };
           if(index === 30) { return '2026' };

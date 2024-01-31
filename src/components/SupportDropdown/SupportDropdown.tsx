@@ -12,16 +12,22 @@ import { PhoneIcon } from '../../assets/PhoneIcon';
 export const SupportDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = (open: boolean) => setIsOpen(!isOpen);
+  const handleEnter = (e: any) => {
+    if (e.pointerType === 'mouse') setIsOpen(true);
+  }
+
+  const handleLeave = (e: any) => {
+    if (e.pointerType === 'mouse') setIsOpen(false);
+  }
 
   return (
-    <DropdownMenu.Root open={isOpen} onOpenChange={toggleOpen}>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenu.Root open={isOpen}>
+      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter}>
         <StyledSupport>Support</StyledSupport>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <StyledDropdownContent sideOffset={10} align='end' sticky='always'>
+        <StyledDropdownContent sideOffset={10} align='end' sticky='always' onPointerLeave={handleLeave}>
           <StyledDropdownItem>
             <PhoneIcon width={'12px'} height={'12px'} />
             <div>

@@ -24,18 +24,18 @@ export const pieChartData = {
 };
 
 export const pieChartOptions = {
-  maintainAspectRatio: false,
+  aspectRatio: 2,
   plugins: {
     legend: {
       position: 'right' as const,
       labels: {
         font: {
-          size: 10,
+          size: 12,
         },
         usePointStyle: true,
         pointStyle: 'circle' as const,
-        boxWidth: 3,
-        boxHeight: 3,
+        boxWidth: 5,
+        boxHeight: 5,
       },
     },
     datalabels: {
@@ -43,8 +43,11 @@ export const pieChartOptions = {
       formatter: function (value: number, context: Context) {
         return `${value.toLocaleString()} (${value / 1000}%)`;
       },
+      anchor: 'end',
+      clamp: true,
+      align: 'start',
       font: {
-        size: 5,
+        size: 8,
       },
     },
   },

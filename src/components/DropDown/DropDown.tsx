@@ -15,13 +15,17 @@ import { useState } from 'react';
 export const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpenChange = (open: boolean) => {
-    setIsOpen(!isOpen);
-  };
+  const handleEnter = (e: any) => {
+    if (e.pointerType === 'mouse') setIsOpen(true);
+  }
+
+  const handleLeave = (e: any) => {
+    if (e.pointerType === 'mouse') setIsOpen(false);
+  }
 
   return (
-    <DropdownMenu.Root onOpenChange={handleOpenChange} open={isOpen}>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenu.Root open={isOpen}>
+      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter}>
         <DropdownButton $open={isOpen}>
           <UserIcon width={'16px'} height={'16px'} color='#4A4ED4' />
           <ArrowDown width={'16px'} height={'16px'} />
@@ -29,7 +33,7 @@ export const DropDown = () => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <StyledDropdownContent sideOffset={10}>
+        <StyledDropdownContent sideOffset={10} onPointerLeave={handleLeave}>
           <StyledDropdownItem>
             <ColoredUser width={'20px'} height={'20px'} color='blue' />
             <span>My Profile</span>
