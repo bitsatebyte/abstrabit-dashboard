@@ -13,21 +13,21 @@ export const SupportDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleEnter = (e: any) => {
-    if (e.pointerType === 'mouse') setIsOpen(true);
+    setIsOpen(true);
   }
 
   const handleLeave = (e: any) => {
-    if (e.pointerType === 'mouse') setIsOpen(false);
+    setIsOpen(false);
   }
 
   return (
-    <DropdownMenu.Root open={isOpen}>
-      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter}>
+    <DropdownMenu.Root open={isOpen} modal={false}>
+      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter} onPointerLeave={handleLeave}>
         <StyledSupport>Support</StyledSupport>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <StyledDropdownContent sideOffset={10} align='end' sticky='always' onPointerLeave={handleLeave}>
+        <StyledDropdownContent sideOffset={10} align='end' sticky='always'>
           <StyledDropdownItem>
             <PhoneIcon width={'12px'} height={'12px'} />
             <div>

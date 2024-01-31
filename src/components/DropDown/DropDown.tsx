@@ -16,16 +16,16 @@ export const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleEnter = (e: any) => {
-    if (e.pointerType === 'mouse') setIsOpen(true);
+    setIsOpen(true);
   }
 
   const handleLeave = (e: any) => {
-    if (e.pointerType === 'mouse') setIsOpen(false);
+    setIsOpen(false);
   }
 
   return (
-    <DropdownMenu.Root open={isOpen}>
-      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter}>
+    <DropdownMenu.Root open={isOpen} modal={false}>
+      <DropdownMenu.Trigger asChild onPointerEnter={handleEnter} onPointerLeave={handleLeave}>
         <DropdownButton $open={isOpen}>
           <UserIcon width={'16px'} height={'16px'} color='#4A4ED4' />
           <ArrowDown width={'16px'} height={'16px'} />
@@ -33,7 +33,7 @@ export const DropDown = () => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <StyledDropdownContent sideOffset={10} onPointerLeave={handleLeave}>
+        <StyledDropdownContent sideOffset={10}>
           <StyledDropdownItem>
             <ColoredUser width={'20px'} height={'20px'} color='blue' />
             <span>My Profile</span>
