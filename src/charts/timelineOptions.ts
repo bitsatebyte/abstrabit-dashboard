@@ -39,11 +39,11 @@ const plugin = {
     ctx.save();
     ctx.globalCompositeOperation = 'destination-over';
     ctx.fillStyle = 'rgba(240, 239, 255, 1)';
-    ctx.fillRect(0, MAX_BG_COLOR_HEIGHT, chart.width/3 - 9, chart.height);
+    ctx.fillRect(0, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
     ctx.fillStyle = 'rgba(241, 246, 229, 1)';
-    ctx.fillRect(248, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
+    ctx.fillRect(258, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
     ctx.fillStyle = 'rgba(254, 245, 231, 1)';
-    ctx.fillRect(502, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
+    ctx.fillRect(516, MAX_BG_COLOR_HEIGHT, chart.width/3, chart.height);
     ctx.restore();
   }
 };
@@ -76,9 +76,9 @@ export const timelineOptions = {
         },
         length: 20,
         padding: -7,
+        labelOffset: 10,
       },
       grid: { 
-        offset: true,
         tickLength: 20,
         color: 'white',
       },
